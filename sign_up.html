@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css"/>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+		<script src="style/bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<style>
+	.jumbotron{
+		margin-left: 200px;
+		margin-right: 200px;
+		margin-top: 50px;
+		padding-bottom: 10px;
+	}
+	</style>
+	<body>
+		<div class = "container">
+			<div class = "jumbotron">
+				<center>
+					<form class="form-inline" id = "sign_up" action="sign_up.php" method="post">
+						<div class ="form-group" "row">
+							<div class="col-sm-5">Username</div><div class="col-sm-1">:</div><div class="col-sm-6"><input type = "text" class = "form-control" id = "name" name = "user_name" required></div><br><br>
+							<div class="col-sm-5">Password</div><div class="col-sm-1">:</div><div class="col-sm-6"><input type = "password" class = "form-control" id = "password" name = "user_password" required></div><br><br>
+							<div class="col-sm-5">Conform Password</div><div class="col-sm-1">:</div><div class="col-sm-6"><input type = "password" class = "form-control" id = "conform_password" name = "conform_password" required></div><br><br><br>
+							<div class="col-sm-6"></div>
+							<div class="col-sm-3"><a href="index.html" class="btn btn-default" role="button">Cancel</a></div>
+							<div class="col-sm-3"><input type = "submit" class="btn btn-primary" value = "Sign Up"></div>
+						</div>
+					</form>
+				</center>
+			</div>
+		</div>
+		<script>
+			//checks whether password and conform password are match
+			$("#sign_up").submit(function(event){
+				if ( $("#password").val() != $( "#conform_password" ).val() ) {
+					alert("Passords doesn't match");
+					
+					//prevents from subbitting the form
+					event.preventDefault();
+				}		
+			});
+		</script>
+	</body>
+</html>
